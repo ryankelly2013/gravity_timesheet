@@ -7,7 +7,7 @@ function handleError(err) {
   should.equal(1, 0, err.stack);
 }
 
-const url = 'localhost:3000';
+const url = 'http://gravitytimesheet.herokuapp.com';
 
 //Projects Ids
 var ifr_id;
