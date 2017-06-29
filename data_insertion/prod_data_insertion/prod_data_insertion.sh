@@ -1,4 +1,4 @@
-url="localhost:3000"
+url="http://gravitytimesheet.herokuapp.com"
 
 echo "\nInserting Projecdts"
 
