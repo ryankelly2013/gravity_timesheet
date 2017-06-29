@@ -1,0 +1,7 @@
+{
+	"USER": "ryankell".
+	"PASS":	"condorconsultinggroup123",
+	"HOST" : "ds141242.mlab.com",
+	"PORT" : "41242",
+	"DATABASE" : "heroku_2clx3pn4"
+}

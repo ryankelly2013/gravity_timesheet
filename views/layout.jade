@@ -1,0 +1,48 @@
+doctype html
+html
+	head
+		title= name
+		link(rel='stylesheet', href='/stylesheets/style.css')
+		link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+		link(rel='stylesheet', href='https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css')
+		link(rel='stylesheet', href='https://cdn.datatables.net/1.10.15/css/dataTables.uikit.min.css')
+		link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+
+		script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+		script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+		script(src='https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js')
+		script(src='https://cdn.datatables.net/1.10.15/js/dataTables.uikit.min.js')
+
+
+		style(type="text/css", media="screen").
+			* {
+				margin: 0;
+				padding: -;
+			}
+
+			div#banner {
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: #1B015F;
+				width: 100%;
+			}
+
+			div#banner-content {
+				width: 800px;
+				margin: 0 auto;
+				padding: 10px;
+				text-align: center;
+				color: white;
+
+			}
+
+			div#main-content {
+				padding-top: 70px;
+			}
+	body
+		div(id="banner")
+			div(id="banner-content")
+				h3(id="banner_title") Gravity Timesheet System
+		div(id="main-content")
+			block content

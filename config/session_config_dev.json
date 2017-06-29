@@ -1,0 +1,6 @@
+{
+	"cookieName": "session",
+  "secret": "condorconsultinggroup123",
+  "duration": 5184000000,
+  "activeDuration": 5184000000
+}
