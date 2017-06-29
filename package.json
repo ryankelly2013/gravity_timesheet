@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "NODE_ENV=development node ./bin/www",
-    "test": "NODE_ENV=development mocha --recursive",
-    "test_data": "NODE_ENV=development sh data_insertion/test_data_insertion/testing_data.sh",
-    "prod_data": "NODE_ENV=development sh data_insertion/prod_data_insertion/prod_data_insertion.sh",
-    "timesheet": "NODE_ENV=development node data_insertion/timesheet_creation.js"
+    "start": "NODE_ENV=production node ./bin/www",
+    "test": "NODE_ENV=production mocha --recursive",
+    "test_data": "NODE_ENV=production sh data_insertion/test_data_insertion/testing_data.sh",
+    "prod_data": "NODE_ENV=production sh data_insertion/prod_data_insertion/prod_data_insertion.sh",
+    "timesheet": "NODE_ENV=production node data_insertion/timesheet_creation.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
