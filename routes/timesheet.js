@@ -54,7 +54,7 @@ router.post('/', function(req, res) {
 	});
 
 	for(var i = 0; i < day; ++i) {
-		timesheet.data.push({ day: new Date(year, month, i + 1), time: 0.00, description: "" });
+		timesheet.data.push({ day: new Date(year, month, i + 1, 12), time: 0.00, description: "" });
 	}
 
 	timesheet.save(function(err) {
