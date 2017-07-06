@@ -119,7 +119,7 @@ function get_timesheet(user_id, username, project_id) {
 	  	$("#" + user_id + project_id + "_body tr td").focus(function() {
 	  		original_text = $(this).text();
 	  		var col = $(this).parent().children().index($(this));
-	  		if(col === 1 && original_text === "0") {
+	  		if(col === 1 && original_text === "0.00") {
 	  			$(this).text("");
 	  		}
 	  		
