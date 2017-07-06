@@ -90,6 +90,10 @@ function get_timesheet(user_id, username, project_id) {
 	  	for(var i = 0; i < data.data.length; ++i) {
 	  		var current_day = data.data[i];
 	  		var current_date = new Date(current_day.day);
+
+	  		console.log("Returned date object: " + current_day.day);
+	  		console.log("month: " + current_date.getMonth() + " day: " + current_date.getDate());
+
 	  		//Next, display the selected month
 				var month = current_date.getMonth();
 				var dt = current_date.getDate();
@@ -114,7 +118,11 @@ function get_timesheet(user_id, username, project_id) {
 
 	  	$("#" + user_id + project_id + "_body tr td").focus(function() {
 	  		original_text = $(this).text();
-	  		$(this).text("");
+	  		var col = $(this).parent().children().index($(this));
+	  		if(col === 1 && original_text === "0") {
+	  			$(this).text("");
+	  		}
+	  		
 	  	});
 
 	  	$("#" + user_id + project_id + "_body tr td").blur(function() {
