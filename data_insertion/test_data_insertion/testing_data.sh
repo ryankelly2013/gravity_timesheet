@@ -34,7 +34,7 @@ echo ""
 curl \
 --header "Content-type: application/json" \
 --request POST \
---data '{"username": "test_admin",  "name" : "Admin Admin", "email": "testemail", "password": "mypassword", "company_id": null, "accessType" : 2}' \
+--data '{"username": "test_admin",  "name" : "Admin Admin", "email": "testemail", "password": "mypassword", "company_id": null, "project_ids": ["597ca0a047c90e2bb832f743"], "accessType" : 2}' \
 localhost:3000/user
 
 echo ""
@@ -42,7 +42,7 @@ echo ""
 curl \
 --header "Content-type: application/json" \
 --request POST \
---data '{"username": "test_owner_1",  "name" : "Owner 1", "email": "testemail", "password": "mypassword", "company_id": null, "accessType" : 1}' \
+--data '{"username": "test_owner_1",  "name" : "Owner 1", "email": "testemail", "password": "mypassword", "company_id": null, "project_ids": ["597ca0a047c90e2bb832f743"], "accessType" : 1}' \
 localhost:3000/user
 
 echo ""
@@ -50,7 +50,7 @@ echo ""
 curl \
 --header "Content-type: application/json" \
 --request POST \
---data '{"username": "test_owner_2",  "name" : "Owner 2", "email": "testemail", "password": "mypassword", "company_id": null, "accessType" : 1}' \
+--data '{"username": "test_owner_2",  "name" : "Owner 2", "email": "testemail", "password": "mypassword", "company_id": null, "project_ids": ["597ca0a047c90e2bb832f743"], "accessType" : 1}' \
 localhost:3000/user
 
 echo ""
@@ -58,7 +58,7 @@ echo ""
 curl \
 --header "Content-type: application/json" \
 --request POST \
---data '{"username": "test_employee_1_1",  "name" : "Employee 1 1", "email": "testemail", "password": "mypassword", "company_id": null, "accessType" : 0}' \
+--data '{"username": "test_employee_1_1",  "name" : "Employee 1 1", "email": "testemail", "password": "mypassword", "company_id": null, "project_ids": ["597ca0a047c90e2bb832f743"], "accessType" : 0}' \
 localhost:3000/user
 
 echo ""
@@ -67,7 +67,7 @@ echo ""
 curl \
 --header "Content-type: application/json" \
 --request POST \
---data '{"username": "test_employee_1_2",  "name" : "Employee 1 2", "email": "testemail", "password": "mypassword", "company_id": null, "accessType" : 0}' \
+--data '{"username": "test_employee_1_2",  "name" : "Employee 1 2", "email": "testemail", "password": "mypassword", "company_id": null, "project_ids": ["597ca0a047c90e2bb832f743"], "accessType" : 0}' \
 localhost:3000/user
 
 echo ""
@@ -75,7 +75,7 @@ echo ""
 curl \
 --header "Content-type: application/json" \
 --request POST \
---data '{"username": "test_employee_2_1",  "name" : "Employee 2 1", "email": "testemail", "password": "mypassword", "company_id": null, "accessType" : 0}' \
+--data '{"username": "test_employee_2_1",  "name" : "Employee 2 1", "email": "testemail", "password": "mypassword", "company_id": null, "project_ids": ["597ca0a047c90e2bb832f743"], "accessType" : 0}' \
 localhost:3000/user
 
 echo ""

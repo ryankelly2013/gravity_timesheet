@@ -2,6 +2,7 @@ var users;
 var accountType;
 var accountUsername;
 var currentMonth;
+var availableMonths = [];
 
 function isNum(num)
 {
@@ -275,6 +276,22 @@ function create_pill_html(user, is_user) {
 	
 }
 
+function dropdown_click(dropdown_item) {
+	currentMonth = availableMonths[dropdown_item.id];
+	$('#dropdown_button').html((currentMonth.getMonth() + 1) + '-' + currentMonth.getDate() + '-' + currentMonth.getFullYear() + ' <span class="caret"></span>');
+
+	$("#names_pills").empty();
+	$("#tab-content").empty();
+
+		//First, set up names pill
+	$("#names_pills").append("<li class='active'><a data-toggle='pill' href='#" + users[0]._id + "'>" + users[0].name + "</a></li>")
+	$("#tab-content").append(create_pill_html(users[0], true));
+
+	for(var i = 1; i < users.length; ++i) {
+		$("#names_pills").append("<li><a data-toggle='pill' href='#" + users[i]._id + "'>" + users[i].name + "</a></li>");
+		$("#tab-content").append(create_pill_html(users[i], false));
+	}
+}
 
 
 $(document).ready(function () {
@@ -285,7 +302,32 @@ $(document).ready(function () {
 	     users = data.users;
 	     accountType = data.accountType;
 	     accountUsername = data.accountUsername;
-	     currentMonth = new Date(data.currentMonthEnd);
+
+     //Next, set up the dropdown
+     currentMonth = new Date(data.currentMonthEnd);
+			var year = currentMonth.getFullYear();
+			var month = currentMonth.getMonth() + 1;
+			var dt = currentMonth.getDate();
+
+			if (dt < 10) {
+			  dt = '0' + dt;
+			}
+			if (month < 10) {
+			  month = '0' + month;
+			}
+
+			$('#dropdown_button').html(month + '-' + dt + '-' + year + ' <span class="caret"></span>');
+	     
+
+	     console.log(data.availableMonths);
+
+	     //Get available months for use by dropdown
+	     for(var i = 0; i < data.availableMonths.length; ++i) {
+	     	var temp_date = new Date(data.availableMonths[i])
+	     	console.log(temp_date);
+	     	availableMonths.push(temp_date);
+	     	$("#dropdown_list").append('<li><a id="' + i + '" onclick="dropdown_click(this);">' + (temp_date.getMonth() + 1) + '-' + temp_date.getDate() + '-' + temp_date.getFullYear() + '</a></li>')
+	     }
 
 	   		//First, set up names pill
 	   		$("#names_pills").append("<li class='active'><a data-toggle='pill' href='#" + users[0]._id + "'>" + users[0].name + "</a></li>")
@@ -298,19 +340,7 @@ $(document).ready(function () {
 	   		//$("#names").css('display', 'block');
 	 
 
-	     	//Next, display the selected month
-				var year = currentMonth.getFullYear();
-				var month = currentMonth.getMonth() + 1;
-				var dt = currentMonth.getDate();
-
-				if (dt < 10) {
-				  dt = '0' + dt;
-				}
-				if (month < 10) {
-				  month = '0' + month;
-				}
-
-	     $('#selected_month_label').text(month + '-' + dt + '-' + year);
+	     	
 
 	     //Display the projects for the selected user
 

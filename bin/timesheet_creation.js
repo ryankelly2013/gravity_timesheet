@@ -7,7 +7,15 @@ function handleError(err) {
   should.equal(1, 0, err.stack);
 }
 
-const url = 'http://gravitytimesheet.herokuapp.com';
+var url = "";
+
+if(process.env.NODE_ENV === 'development') {
+	console.log("In development url");
+	url = 'localhost:3000';
+}
+else if(process.env.NODE_ENV === 'production') {
+	url = 'http://gravitytimesheet.herokuapp.com';
+}
 
 
 //1. Get all users
@@ -19,16 +27,21 @@ var counter = 0;
 Models.Global.findOne({}, function(err, global) {
 	if(err) return handleError(err);
 	else {
+
+
 		month_end = global.currentMonthEnd;
 		Models.User.find({}, function(err, users) {
 			if(err) return handleError(err);
 			else {
+
 				users.should.not.equal(null);
 				users.should.be.a.Array();
+				users.length.should.not.equal(0);
 
 				for(var i = 0; i < users.length; ++i) {
 					counter += users[i].projectIds.length;
 				}
+
 
 
 				for(var i = 0; i < users.length; ++i) {

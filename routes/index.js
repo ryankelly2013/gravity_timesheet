@@ -89,6 +89,7 @@ function handle_homepage(user_in, callback) {
 					if(err) return handleError(err);
 					else {
 						result.currentMonthEnd = global.currentMonthEnd;
+						result.availableMonths = global.availableMonths;
 						result.accountType = user.accessType;
 						result.accountUsername = user.username
 						result.users = [];

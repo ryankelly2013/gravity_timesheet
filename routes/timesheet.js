@@ -46,23 +46,34 @@ router.post('/', function(req, res) {
 
 	//No error checking for now
 	//User valid, create company
-	var timesheet = new Models.Timesheet({
-		userId: user_id,
-		projectId: project_id,
-		monthEnd: new Date(year, month, day),
-		data: []
-	});
 
-	for(var i = 0; i < day; ++i) {
-		timesheet.data.push({ day: new Date(year, month, i + 1, 12), time: 0.00, description: "" });
-	}
-
-	timesheet.save(function(err) {
+	//First check that timesheet doesn't already exist
+	Models.Timesheet.findOne({'userId' : user_id, 'projectId' : project_id, monthEnd: new Date(year, month, day)}, function(err, timesheet_check) {
 		if(err) return handleError(err);
+		else if(timesheet_check != null) {
+			res.json({success : false, message: "Timesheet already exists"});
+		}
 		else {
-			res.json({ success: true, message: "Timesheet creation successful"});
+				var timesheet = new Models.Timesheet({
+					userId: user_id,
+					projectId: project_id,
+					monthEnd: new Date(year, month, day),
+					data: []
+				});
+
+				for(var i = 0; i < day; ++i) {
+					timesheet.data.push({ day: new Date(year, month, i + 1, 12), time: 0.00, description: "" });
+				}
+
+				timesheet.save(function(err) {
+					if(err) return handleError(err);
+					else {
+						res.json({ success: true, message: "Timesheet creation successful"});
+					}
+				});
 		}
 	});
+
 });
 
 //Edits timesheet
