@@ -61,8 +61,10 @@ function create_html(requested_username, account_username, project_id, month, da
 				if(err) return handleError(err);
 				else if(account_user != null) { 
 					var query = {};
+
+
 					//Step 1: get a list of all the users we need
-					if(mass && account_user.accountType == 1) {
+					if(mass && account_user.accessType == 1) {
 						//Get users in account_users company
 						query = {companyId: account_user.companyId };
 					}
