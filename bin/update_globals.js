@@ -20,7 +20,7 @@ Models.Global.findOne({}, function(err, global_current) {
 		}
 
 
-		Models.Global.update({}, {$set : {'currentMonthEnd' : new Date(next_year, next_month + 1, 0) }, $push: {'availableMonths': new Date(next_year, next_month + 1, 0)}}, function(err, n) {
+		Models.Global.update({}, {$set : {'currentMonthEnd' : new Date(next_year, next_month + 1, 12) }, $push: {'availableMonths': new Date(next_year, next_month + 1, 12)}}, function(err, n) {
 			if(err) return handleError(err);
 			else {
 				process.exit(0);
