@@ -1,7 +1,7 @@
 var request = require('supertest');
 var should = require('should'); 
 var assert = require('assert'); 
-var Models = require("../models");
+var Models = require("./models");
 var mongoose = require("mongoose");
 function handleError(err) {
   should.equal(1, 0, err.stack);
