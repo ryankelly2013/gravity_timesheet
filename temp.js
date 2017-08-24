@@ -17,12 +17,7 @@ else if(process.env.NODE_ENV === 'production') {
 	url = 'http://gravitytimesheet.herokuapp.com';
 }
 
-
-//1. Get all users
-
-//2. For each user, create timesheet in current month with the associated project, via post request
-
-var counter = 0;
+var counter = 2;
 
 Models.Global.findOne({}, function(err, global) {
 	if(err) return handleError(err);
@@ -30,25 +25,13 @@ Models.Global.findOne({}, function(err, global) {
 
 
 		month_end = global.currentMonthEnd;
-		Models.User.find({}, function(err, users) {
+		Models.User.findOne({'name' : 'Keerthana Elangovan'}, function(err, users) {
 			if(err) return handleError(err);
 			else {
-
-				users.should.not.equal(null);
-				users.should.be.a.Array();
-				users.length.should.not.equal(0);
-
-				for(var i = 0; i < users.length; ++i) {
-					counter += users[i].projectIds.length;
-				}
-
-
-
-				for(var i = 0; i < users.length; ++i) {
-					for(var j = 0; j < users[i].projectIds.length; ++j) {
+					for(var j = 1; j < users.projectIds.length; ++j) {
 						var payload = {
-							user_id: users[i]._id,
-							project_id: users[i].projectIds[j],
+							user_id: users._id,
+							project_id: users.projectIds[j],
 							month: month_end.getMonth(), //Remember zero indexed
 							year: month_end.getFullYear(),
 							day: month_end.getDate()
@@ -68,7 +51,6 @@ Models.Global.findOne({}, function(err, global) {
 							}
 						});
 					}
-				}
 			}
 		});
 	}
