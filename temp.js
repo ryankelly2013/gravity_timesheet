@@ -25,10 +25,10 @@ Models.Global.findOne({}, function(err, global) {
 
 
 		month_end = global.currentMonthEnd;
-		Models.User.findOne({'name' : 'Keerthana Elangovan'}, function(err, users) {
+		Models.User.findOne({'username' : 'roya'}, function(err, users) {
 			if(err) return handleError(err);
 			else {
-					for(var j = 1; j < users.projectIds.length; ++j) {
+					for(var j = 3; j < users.projectIds.length; ++j) {
 						var payload = {
 							user_id: users._id,
 							project_id: users.projectIds[j],
