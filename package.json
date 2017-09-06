@@ -7,7 +7,7 @@
     "test": "NODE_ENV=development mocha --recursive",
     "test_data": "NODE_ENV=development sh data_insertion/test_data_insertion/testing_data.sh",
     "prod_data": "NODE_ENV=development sh data_insertion/prod_data_insertion/prod_data_insertion.sh",
-    "timesheet": "NODE_ENV=production node data_insertion/timesheet_creation.js",
+    "timesheet": "NODE_ENV=production node bin/timesheet_creation.js",
     "monthly_update": "NODE_ENV=production sh bin/monthly_update.sh",
     "temp_insert" : "NODE_ENV=production node temp.js"
   },
