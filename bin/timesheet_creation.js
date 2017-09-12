@@ -30,12 +30,11 @@ Models.Global.findOne({}, function(err, global) {
 
 
 		month_end = global.currentMonthEnd;
-		Models.User.find({'username' : 'anchetam'}, function(err, users) {
+		Models.User.find({}, function(err, users) {
 			if(err) return handleError(err);
 			else {
 
 				users.should.not.equal(null);
-				users.length.should.equal(1, "Invalid number of users");
 				users.should.be.a.Array();
 				users.length.should.not.equal(0);
 
