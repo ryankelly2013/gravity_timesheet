@@ -41,9 +41,9 @@ function generate_html_single(user_name, projectname, timesheet) {
 //Creates the html for this user, this project, for this month
 //And returns { html: the html, filename: the filename }
 function create_html(requested_username, account_username, project_id, month, day, year, mass, callback) {
-	var html = "<html><head><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
-	html += "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
-	html += "<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
+	var html = "<html><head><link rel='stylesheet' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
+	html += "<script src='http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>";
+	html += "<script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>";
 	html += "<style>html, body { margin: 0; padding: 0; font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif; }";
 	html += ".page { position: relative; width: 150mm; display: block; page-break-after: always; margin: 20px; }  table tr th { font-size: 12px; } table tr td{ height: 20px; font-size: 10px; }</style></head>";
 	html += "<body>"
