@@ -17,6 +17,7 @@ var y14_id;
 var fr2_id;
 var transFin_id;
 var transRisk_id;
+var riskAnalysis_id;
 
 
 //Company ids
@@ -60,7 +61,7 @@ function post_user(username, name, password, company_id, accessType, project_ids
 Models.Project.find({}, function(err, projects) {
 	if(err) return handleError(err);
 	else {
-		projects.length.should.equal(7, "Incorrect number of projects");
+		projects.length.should.equal(8, "Incorrect number of projects");
 		for(var i = 0; i < projects.length; ++i) {
 			switch(projects[i].name) {
 				case "IFRS9":
@@ -83,6 +84,9 @@ Models.Project.find({}, function(err, projects) {
 					break;
 				case "Transportation Finance Data - Risk":
 					transRisk_id = projects[i]._id;
+					break;
+				case "Risk Analysis":
+					riskAnalysis_id = projects[i]._id;
 					break;
 				default:
 					break;
@@ -141,7 +145,9 @@ Models.Project.find({}, function(err, projects) {
 																post_user("cunninghamr", "Robert Cunningham", "cunninghamr63", rfc_id, 1, [ifr_id, ccarDataRiskFin_id, ccarDataRiskRisk_id, transFin_id, transRisk_id], function() {
 																	post_user("kraghw", "William Kragh", "kraghw56", wkragh_id, 1, [ccarDataRiskFin_id, ccarDataRiskRisk_id], function() {
 																		post_user("kraghc", "Carolyn Kragh", "kraghc94", ckragh_id, 1, [ccarDataRiskFin_id, ccarDataRiskRisk_id], function() {
-																			process.exit(0);
+																			post_user("anchetam", "Michael Ancheta", "anchetam73", meraki_id, 0, [riskAnalysis_id], function() {
+																				process.exit(0);
+																			});
 																		});
 																	});
 																});
